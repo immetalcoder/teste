@@ -1,0 +1,13 @@
+import os, shutil, filecmp,itertools
+
+
+files = os.listdir('D:\\Scripts_Python\\Nova pasta\\')
+extension =('.jpg')
+for filename in files:
+    if filename.endswith(extension):
+        for f1, f2 in itertools.combinations(files,2):
+            comp = filecmp.cmp(f1, f2,  shallow=False)
+            if comp == True:
+                shutil.copy(f2,'D:\\Scripts_Python\\Nova pasta\\Nova pasta\\')
+                break
+
